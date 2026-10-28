@@ -13,7 +13,7 @@ module lab7_ijp( input logic sck,
     logic [127:0] key, plaintext, cyphertext;
 
     // High speed oscillator set to 6 MHz (2'b11)
-    HSOSC #(.CLKHF_DIV(2'b11)) hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
+    HSOSC #(.CLKHF_DIV("0b11")) hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 
     aes_spi  spi(sck, sdi, sdo, done, key, plaintext, cyphertext);
     aes_core core(clk, load, key, plaintext, done, cyphertext);
